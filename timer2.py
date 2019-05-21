@@ -9,7 +9,6 @@
 # WARNING! All changes made in this file will be lost!
 
 from PySide2 import QtCore, QtGui, QtWidgets
-from support import Ui_support
 from PySide2.QtWidgets import QApplication
 from PySide2.QtCore import QTimer
 from PySide2.QtCore import *
@@ -100,14 +99,14 @@ class Ui_MainWindow(object):
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 2, 0, 1, 4)
-        
+
         self.chi_vorresti = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(14)
         self.chi_vorresti.setFont(font)
         self.chi_vorresti.setObjectName("chi_vorresti")
         self.gridLayout.addWidget(self.chi_vorresti, 2, 2, 1, 1)
-        
+
         self.Dottorando = QtWidgets.QCheckBox(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -157,19 +156,19 @@ class Ui_MainWindow(object):
 
 
 
-        
+
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
 
 
-    
+
 
 #################################################################################
         if self.Laureando.isChecked():
             text_support="Ciao"
-        
+
 
         self.pushButton.clicked.connect(self.support)
         self.sogni.clicked.connect(self.list)
@@ -209,7 +208,7 @@ class Ui_MainWindow(object):
         self.ui = Ui_support()
         self.ui.setupUi(self.form)
         self.form.show()
-    
+
     def list(self):
         self.form2 = QtWidgets.QMainWindow()
         self.ui2 = Ui_list()
@@ -227,7 +226,7 @@ class Ui_MainWindow(object):
         i=0
         self.lcd_money.display(i+1)
         while i <= 10:
-            
+
             i+=1
             time.sleep(1)
     def change_a(self):
@@ -246,7 +245,7 @@ class Ui_MainWindow(object):
             self.euro_real=0.001909722
         if self.Assegnista.isChecked():
             self.euro_real=0.002430556
-        if self.Laureando.isChecked():   
+        if self.Laureando.isChecked():
             self.euro_real=0
 
         if Ui_list.lst == 1:
@@ -314,12 +313,12 @@ class Ui_MainWindow(object):
 
 
     def update_gui(self):
-        
+
         self.lcd_tempo.display(format(self.time_left_int))
         self.lcd_money.display('{:.2f}'.format(self.time_left_int*self.euro_real))
         self.lcdNumber.display('{:.2f}'.format(self.time_left_int*self.euro_img))
         self.progressBar.setValue(self.time_left_int/28800*100)
-    '''   
+    '''
     def start_timer(self,interval):
         timer = QTimer()
         timer.timeout.connect(self.increase)
@@ -329,14 +328,14 @@ class Ui_MainWindow(object):
         timer.start()
     '''
 
-    
+
     def start_funct(self):
         euro_real=0
         euro_img=0
         if self.Dottorando.isChecked():
             euro_real=7
         self.timer_start()
-        
+
 
 
     ################################################################################
@@ -368,18 +367,18 @@ class Ui_support(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        
 
 
-        
+
+
 
     def retranslateUi(self, MainWindow):
         text_support=""
-       
+
         if ui.Laureando.isChecked():
             self.text_support="Putroppo sei l'ultima\nruota del carro"
         else:
-            self.text_support="Pensa che c'è sempre un laureando\nche non viene pagato" 
+            self.text_support="Pensa che c'è sempre un laureando\nche non viene pagato"
 
 
         MainWindow.setWindowTitle(QtWidgets.QApplication.translate("support", "MainWindow", None, -1))
@@ -548,9 +547,9 @@ class Ui_list(object):
         self.ui2 = Ui_list()
         self.ui2.setupUi(self.form2)
         self.form2.close()
-   '''     
+   '''
 
-        
+
 
 class Ui_finish(object):
     def setupUi(self, finish):
@@ -582,16 +581,16 @@ class Ui_finish(object):
     def retranslateUi(self, finish):
         finish.setWindowTitle(QtWidgets.QApplication.translate("finish", "MainWindow", None, -1))
         self.label.setText(QtWidgets.QApplication.translate("finish", "Si va a Casa!!!!!", None, -1))
-    
 
 
 
-    
 
 
 
-    
-   
+
+
+
+
 
 
 if __name__ == "__main__":
@@ -602,5 +601,3 @@ if __name__ == "__main__":
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
-
-

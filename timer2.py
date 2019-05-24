@@ -146,6 +146,8 @@ class Ui_MainWindow(object):
         self.toolBar.setObjectName("toolBar")
         MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
 
+
+
         self.bg = QtWidgets.QButtonGroup()
         self.bg.addButton(self.Laureando,1)
         self.bg.addButton(self.Dottorando,2)
@@ -205,6 +207,7 @@ class Ui_MainWindow(object):
         self.toolBar.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "toolBar", None, -1))
 
 
+
     def support(self):
         self.form = QtWidgets.QMainWindow()
         self.ui = Ui_support()
@@ -242,6 +245,12 @@ class Ui_MainWindow(object):
     def timer_start(self):
         self.euro_real=0
         self.euro_img=0
+        self.Laureando.setEnabled(False)
+        self.Dottorando.setEnabled(False)
+        self.Assegnista.setEnabled(False)
+        self.altro.setEnabled(False)
+        
+
         if Ui_MainWindow.a == 0:
             self.time_left_int = 0
         else:
@@ -316,6 +325,10 @@ class Ui_MainWindow(object):
 
     def timer_stop(self):
         self.my_qtimer.stop()
+        self.Laureando.setEnabled(True)
+        self.Dottorando.setEnabled(True)
+        self.Assegnista.setEnabled(True)
+        self.altro.setEnabled(True)
 
 
     def update_gui(self):
@@ -488,6 +501,8 @@ class Ui_list(object):
         self.retranslateUi(list)
         QtCore.QMetaObject.connectSlotsByName(list)
 
+
+
         self.pushButton2.clicked.connect(self.param)
         self.pushButton2.clicked.connect(self.close)
 
@@ -603,8 +618,11 @@ class Ui_finish(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
+
+
     Form = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(Form)
+    Form.setWindowIcon(QIcon('./money-bag.svg'))
     Form.show()
     sys.exit(app.exec_())

@@ -249,7 +249,7 @@ class Ui_MainWindow(object):
         self.Dottorando.setEnabled(False)
         self.Assegnista.setEnabled(False)
         self.altro.setEnabled(False)
-        
+        self.sogni.setEnabled(False)
 
         if Ui_MainWindow.a == 0:
             self.time_left_int = 0

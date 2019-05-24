@@ -21,6 +21,8 @@ DURATION_INT=5
 
 class Ui_MainWindow(object):
     a=0
+    form2 = []
+    ui2 = []
     real_amount = "Your Money (€)"
     imaginary_amount = "Your Dream Money (€)"
     def setupUi(self, MainWindow):
@@ -66,7 +68,7 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 0, 0, 1, 4)
         self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
-        self.progressBar.setProperty("value", 24)
+        self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName("progressBar")
         self.gridLayout.addWidget(self.progressBar, 8, 0, 1, 4)
         self.Assegnista = QtWidgets.QCheckBox(self.centralwidget)
@@ -185,7 +187,7 @@ class Ui_MainWindow(object):
 
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "MainWindow", None, -1))
+        MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "Wages calculator", None, -1))
         self.sogni.setText(QtWidgets.QApplication.translate("MainWindow", "...", None, -1))
         self.tempo.setText(QtWidgets.QApplication.translate("MainWindow", "Tempo", None, -1))
         self.start.setText(QtWidgets.QApplication.translate("MainWindow", "Start", None, -1))
@@ -210,10 +212,14 @@ class Ui_MainWindow(object):
         self.form.show()
 
     def list(self):
-        self.form2 = QtWidgets.QMainWindow()
-        self.ui2 = Ui_list()
-        self.ui2.setupUi(self.form2)
-        self.form2.show()
+        Ui_MainWindow.form2 = QtWidgets.QMainWindow()
+        Ui_MainWindow.ui2 = Ui_list()
+        Ui_MainWindow.ui2.setupUi(self.form2)
+        Ui_MainWindow.form2.show()
+
+    def close_list(self):
+
+        self.close()
 
     def finish(self):
         self.form3 = QtWidgets.QMainWindow()
@@ -381,7 +387,7 @@ class Ui_support(object):
             self.text_support="Pensa che c'è sempre un laureando\nche non viene pagato"
 
 
-        MainWindow.setWindowTitle(QtWidgets.QApplication.translate("support", "MainWindow", None, -1))
+        MainWindow.setWindowTitle(QtWidgets.QApplication.translate("support", ":)", None, -1))
         self.label.setText(QtWidgets.QApplication.translate("support", self.text_support, None, -1))
 ######################################################################################################
 
@@ -483,10 +489,10 @@ class Ui_list(object):
         QtCore.QMetaObject.connectSlotsByName(list)
 
         self.pushButton2.clicked.connect(self.param)
-        self.pushButton2.clicked.connect(self.close_self)
+        self.pushButton2.clicked.connect(self.close)
 
     def retranslateUi(self, list):
-        list.setWindowTitle(QtWidgets.QApplication.translate("list", "MainWindow", None, -1))
+        list.setWindowTitle(QtWidgets.QApplication.translate("list", "Dream Jobs", None, -1))
         self.ricercatore.setText(QtWidgets.QApplication.translate("list", "Ricercatore", None, -1))
         self.bezos.setText(QtWidgets.QApplication.translate("list", "Jeff Bezos", None, -1))
         self.CR7.setText(QtWidgets.QApplication.translate("list", "CR7", None, -1))
@@ -503,11 +509,11 @@ class Ui_list(object):
 
 
 
-    def close_self(self):
-        self.form2 = QtWidgets.QMainWindow()
-        #self.ui2 = Ui_list()
-        #self.ui2.setupUi(self.form2)
-        self.form2.close()
+    def close(self):
+        Ui_MainWindow.form2.close()
+
+
+
 
     def param(self):
         # parameter val is actually the same as self.myQListWidget.currentItem
@@ -542,6 +548,7 @@ class Ui_list(object):
         if self.papa.isChecked():
             Ui_list.lst=10
             Ui_list.vorresti= " Il Papa"
+
 '''
         self.form2 = QtWidgets.QMainWindow()
         self.ui2 = Ui_list()

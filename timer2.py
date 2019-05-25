@@ -147,6 +147,71 @@ class Ui_MainWindow(object):
         MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
 
 
+#####################STYLE##################
+
+        self.stylesheet = """
+
+        QPushButton{
+                background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(155, 155, 155, 255), stop:1 rgba(155, 155, 155, 128));
+                color:  white;
+                border: 2px solid grey;
+                border-radius: 5px;
+        }
+        QPushButton:pressed{
+                background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(200, 200, 200, 255), stop:1 rgba(200, 200, 200, 128));
+                color:  white;
+                border: 2px solid grey;
+                border-radius: 5px;
+        }
+        QToolButton{
+                background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(155, 155, 155, 255), stop:1 rgba(155, 155, 155, 128));
+                color:  white;
+                border: 2px solid grey;
+                border-radius: 5px;
+        }
+        QToolButton:pressed{
+                background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(200, 200, 200, 255), stop:1 rgba(200, 200, 200, 128));
+                color:  white;
+                border: 2px solid grey;
+                border-radius: 5px;
+        }
+        QMainWindow{
+            background-color: rgba(70,70,70,255)
+
+        }
+        QProgressBar{
+            background-color: black;
+            color: white;
+            border: 2px solid grey;
+            border-radius: 5px;
+            text-align: center
+    }
+
+    QProgressBar::chunk {
+    background-color: grey;
+    width: 5px;
+    margin: 1px;
+    }
+
+    QLabel{
+    color: white;
+    }
+    QCheckBox{
+    color: white;
+    }
+    QLCDNumber{
+    color: white;
+    }
+
+        """
+
+
+
+
+
+
+#########################################
+
 
         self.bg = QtWidgets.QButtonGroup()
         self.bg.addButton(self.Laureando,1)
@@ -329,6 +394,7 @@ class Ui_MainWindow(object):
         self.Dottorando.setEnabled(True)
         self.Assegnista.setEnabled(True)
         self.altro.setEnabled(True)
+        self.sogni.setEnabled(True)
 
 
     def update_gui(self):
@@ -336,7 +402,7 @@ class Ui_MainWindow(object):
         self.lcd_tempo.display(format(self.time_left_int))
         self.lcd_money.display('{:.2f}'.format(self.time_left_int*self.euro_real))
         self.lcdNumber.display('{:.2f}'.format(self.time_left_int*self.euro_img))
-        self.progressBar.setValue(self.time_left_int/28800*100)
+        self.progressBar.setValue(self.time_left_int/28*100)
     '''
     def start_timer(self,interval):
         timer = QTimer()
@@ -623,6 +689,7 @@ if __name__ == "__main__":
     Form = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(Form)
+    app.setStyleSheet(ui.stylesheet)
     Form.setWindowIcon(QIcon('./money-bag.svg'))
     Form.show()
     sys.exit(app.exec_())

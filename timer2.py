@@ -402,7 +402,7 @@ class Ui_MainWindow(object):
         self.lcd_tempo.display(format(self.time_left_int))
         self.lcd_money.display('{:.2f}'.format(self.time_left_int*self.euro_real))
         self.lcdNumber.display('{:.2f}'.format(self.time_left_int*self.euro_img))
-        self.progressBar.setValue(self.time_left_int/28*100)
+        self.progressBar.setValue(self.time_left_int/28801*100)
     '''
     def start_timer(self,interval):
         timer = QTimer()

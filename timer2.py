@@ -245,7 +245,7 @@ class Ui_MainWindow(object):
         self.start.clicked.connect(self.change_a)
         self.stop.clicked.connect(self.timer_stop)
         real_amount = "Your Money (€)"
-        imaginary_amount = "Your Dream Money (€)"
+        imaginary_amount = "Your Dream Money ($)"
 
 
 
@@ -256,17 +256,17 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "Wages calculator", None, -1))
         self.sogni.setText(QtWidgets.QApplication.translate("MainWindow", "...", None, -1))
-        self.tempo.setText(QtWidgets.QApplication.translate("MainWindow", "Tempo", None, -1))
+        self.tempo.setText(QtWidgets.QApplication.translate("MainWindow", "Time (s)", None, -1))
         self.start.setText(QtWidgets.QApplication.translate("MainWindow", "Start", None, -1))
         self.stop.setText(QtWidgets.QApplication.translate("MainWindow", "Stop", None, -1))
-        self.Laureando.setText(QtWidgets.QApplication.translate("MainWindow", "Laureando", None, -1))
-        self.label.setText(QtWidgets.QApplication.translate("MainWindow", "Chi sei?", None, -1))
-        self.Assegnista.setText(QtWidgets.QApplication.translate("MainWindow", "Assegnista", None, -1))
+        self.Laureando.setText(QtWidgets.QApplication.translate("MainWindow", "Master student", None, -1))
+        self.label.setText(QtWidgets.QApplication.translate("MainWindow", "What are you?", None, -1))
+        self.Assegnista.setText(QtWidgets.QApplication.translate("MainWindow", "PostDoc", None, -1))
         self.pushButton.setText(QtWidgets.QApplication.translate("MainWindow", "Show Support!", None, -1))
         self.altro.setText(QtWidgets.QApplication.translate("MainWindow", "Altro", None, -1))
-        self.label_2.setText(QtWidgets.QApplication.translate("MainWindow", "Chi vorresti essere?", None, -1))
+        self.label_2.setText(QtWidgets.QApplication.translate("MainWindow", "Who would you like to be?", None, -1))
         self.chi_vorresti.setText(QtWidgets.QApplication.translate("MainWindow", Ui_list.vorresti, None, -1))
-        self.Dottorando.setText(QtWidgets.QApplication.translate("MainWindow", "Dottorando", None, -1))
+        self.Dottorando.setText(QtWidgets.QApplication.translate("MainWindow", "PhD Student", None, -1))
         self.real.setText(QtWidgets.QApplication.translate("MainWindow", Ui_MainWindow.real_amount, None, -1))
         self.imag.setText(QtWidgets.QApplication.translate("MainWindow", Ui_MainWindow.imaginary_amount, None, -1))
         self.toolBar.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "toolBar", None, -1))
@@ -330,19 +330,19 @@ class Ui_MainWindow(object):
 
         if Ui_list.lst == 1:
             self.euro_img = 0.002777778
-            Ui_MainWindow.imaginary_amount= "Ricercatore's Money (€)"
+            Ui_MainWindow.imaginary_amount= "Researcher's Money (€)"
         if Ui_list.lst == 2:
             self.euro_img = 0.003993056
-            Ui_MainWindow.imaginary_amount= "Associato's Money (€)"
+            Ui_MainWindow.imaginary_amount= "Associated Professors's Money (€)"
         if Ui_list.lst == 3:
             self.euro_img = 0.006944444
-            Ui_MainWindow.imaginary_amount= "Ordinario's Money (€)"
+            Ui_MainWindow.imaginary_amount= "Full Professors's Money (€)"
         if Ui_list.lst == 4:
             self.euro_img = 0.007927448
-            Ui_MainWindow.imaginary_amount= "Pallavolista's Money (€)"
+            Ui_MainWindow.imaginary_amount= "Volleyball player's Money (€)"
         if Ui_list.lst == 5:
             self.euro_img = 0.015854896
-            Ui_MainWindow.imaginary_amount= "Cestista's Money (€)"
+            Ui_MainWindow.imaginary_amount= "Basketball player's Money (€)"
         if Ui_list.lst == 6:
             self.euro_img = 1.4
             Ui_MainWindow.imaginary_amount= "CR7's Money (€)"
@@ -357,7 +357,7 @@ class Ui_MainWindow(object):
             Ui_MainWindow.imaginary_amount= "Trump's Money ($)"
         if Ui_list.lst == 10:
             self.euro_img = 1
-            Ui_MainWindow.imaginary_amount= "Il papa's Money (blessings)"
+            Ui_MainWindow.imaginary_amount= "The pope's Money (blessings)"
 
 
         self.retranslateUi(Form)
@@ -574,18 +574,18 @@ class Ui_list(object):
 
     def retranslateUi(self, list):
         list.setWindowTitle(QtWidgets.QApplication.translate("list", "Dream Jobs", None, -1))
-        self.ricercatore.setText(QtWidgets.QApplication.translate("list", "Ricercatore", None, -1))
+        self.ricercatore.setText(QtWidgets.QApplication.translate("list", "Researcher", None, -1))
         self.bezos.setText(QtWidgets.QApplication.translate("list", "Jeff Bezos", None, -1))
         self.CR7.setText(QtWidgets.QApplication.translate("list", "CR7", None, -1))
         self.musk.setText(QtWidgets.QApplication.translate("list", "Elon Musk", None, -1))
-        self.checkBox_11.setText(QtWidgets.QApplication.translate("list", "Altro", None, -1))
-        self.pallavolo.setText(QtWidgets.QApplication.translate("list", "Pallavolista", None, -1))
-        self.cestista.setText(QtWidgets.QApplication.translate("list", "Cestista", None, -1))
-        self.papa.setText(QtWidgets.QApplication.translate("list", "Il papa", None, -1))
+        self.checkBox_11.setText(QtWidgets.QApplication.translate("list", "Other", None, -1))
+        self.pallavolo.setText(QtWidgets.QApplication.translate("list", "Volleyball player", None, -1))
+        self.cestista.setText(QtWidgets.QApplication.translate("list", "Basketball player", None, -1))
+        self.papa.setText(QtWidgets.QApplication.translate("list", "The pope", None, -1))
         self.trump.setText(QtWidgets.QApplication.translate("list", "Donald Trump", None, -1))
-        self.ordinario.setText(QtWidgets.QApplication.translate("list", "Oridnario", None, -1))
-        self.checkBox_12.setText(QtWidgets.QApplication.translate("list", "Altro2", None, -1))
-        self.associato.setText(QtWidgets.QApplication.translate("list", "Associato", None, -1))
+        self.ordinario.setText(QtWidgets.QApplication.translate("list", "Full Professor", None, -1))
+        self.checkBox_12.setText(QtWidgets.QApplication.translate("list", "Other2", None, -1))
+        self.associato.setText(QtWidgets.QApplication.translate("list", "Associated Professor", None, -1))
         self.pushButton2.setText(QtWidgets.QApplication.translate("list", "OK", None, -1))
 
 
@@ -601,19 +601,19 @@ class Ui_list(object):
         #self.listWidget.itemActivated.connect
         if self.ricercatore.isChecked():
             Ui_list.lst=1
-            Ui_list.vorresti= "Ricercatore"
+            Ui_list.vorresti= "Researcher"
         if self.associato.isChecked():
             Ui_list.lst=2
-            Ui_list.vorresti= "Associato"
+            Ui_list.vorresti= "Associated professor"
         if self.ordinario.isChecked():
             Ui_list.lst=3
-            Ui_list.vorresti= "Ordinario"
+            Ui_list.vorresti= "Full professor"
         if self.pallavolo.isChecked():
             Ui_list.lst=4
-            Ui_list.vorresti= "Pallavolista"
+            Ui_list.vorresti= "Volleyball player"
         if self.cestista.isChecked():
             Ui_list.lst=5
-            Ui_list.vorresti= "Cestista"
+            Ui_list.vorresti= "Basketball player"
         if self.CR7.isChecked():
             Ui_list.lst=6
             Ui_list.vorresti= "CR7"
@@ -628,7 +628,7 @@ class Ui_list(object):
             Ui_list.vorresti= "Donald Trump"
         if self.papa.isChecked():
             Ui_list.lst=10
-            Ui_list.vorresti= " Il Papa"
+            Ui_list.vorresti= "The pope"
 
 '''
         self.form2 = QtWidgets.QMainWindow()

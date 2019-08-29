@@ -18,6 +18,9 @@ import time
 
 i=0
 DURATION_INT=5
+dest_casa=1
+dest_bere=0
+dest_both=0
 
 class Ui_MainWindow(object):
     a=0
@@ -48,13 +51,13 @@ class Ui_MainWindow(object):
         self.tempo.setFont(font)
         self.tempo.setAlignment(QtCore.Qt.AlignCenter)
         self.tempo.setObjectName("tempo")
-        self.gridLayout.addWidget(self.tempo, 5, 1, 1, 1)
+        self.gridLayout.addWidget(self.tempo, 7, 1, 1, 1)
         self.start = QtWidgets.QPushButton(self.centralwidget)
         self.start.setObjectName("start")
-        self.gridLayout.addWidget(self.start, 10, 0, 1, 4)
+        self.gridLayout.addWidget(self.start, 12, 0, 1, 4)
         self.stop = QtWidgets.QPushButton(self.centralwidget)
         self.stop.setObjectName("stop")
-        self.gridLayout.addWidget(self.stop, 11, 0, 1, 4)
+        self.gridLayout.addWidget(self.stop, 13, 0, 1, 4)
         self.Laureando = QtWidgets.QCheckBox(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -70,7 +73,7 @@ class Ui_MainWindow(object):
         self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
         self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName("progressBar")
-        self.gridLayout.addWidget(self.progressBar, 8, 0, 1, 4)
+        self.gridLayout.addWidget(self.progressBar, 10, 0, 1, 4)
         self.Assegnista = QtWidgets.QCheckBox(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -84,11 +87,11 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.lcd_tempo.sizePolicy().hasHeightForWidth())
         self.lcd_tempo.setSizePolicy(sizePolicy)
         self.lcd_tempo.setObjectName("lcd_tempo")
-        self.gridLayout.addWidget(self.lcd_tempo, 5, 2, 1, 2)
+        self.gridLayout.addWidget(self.lcd_tempo, 7, 2, 1, 2)
         self.lcd_tempo.setDigitCount(10)
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setObjectName("pushButton")
-        self.gridLayout.addWidget(self.pushButton, 9, 0, 1, 4)
+        self.gridLayout.addWidget(self.pushButton, 11, 0, 1, 4)
         self.altro = QtWidgets.QCheckBox(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -109,6 +112,29 @@ class Ui_MainWindow(object):
         self.chi_vorresti.setObjectName("chi_vorresti")
         self.gridLayout.addWidget(self.chi_vorresti, 2, 2, 1, 1)
 
+        self.dovevai = QtWidgets.QLabel(self.centralwidget)
+        self.dovevai.setFont(font)
+        self.dovevai.setObjectName("dovevai")
+        self.dovevai.setText("Where do you go after work?")
+        self.gridLayout.addWidget(self.dovevai, 4, 0, 1, 4)
+
+        self.casa = QtWidgets.QCheckBox(self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.casa.setFont(font)
+        self.casa.setObjectName("casa")
+        self.casa.setText("Home")
+        self.gridLayout.addWidget(self.casa, 5, 0, 1, 2)
+
+        self.bere = QtWidgets.QCheckBox(self.centralwidget)
+        self.bere.setText("Drink")
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.bere.setFont(font)
+        self.bere.setObjectName("bere")
+        self.gridLayout.addWidget(self.bere, 5, 2, 1, 2)
+
+
         self.Dottorando = QtWidgets.QCheckBox(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -117,7 +143,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.Dottorando, 1, 1, 1, 1)
         self.lcd_money = QtWidgets.QLCDNumber(self.centralwidget)
         self.lcd_money.setObjectName("lcd_money")
-        self.gridLayout.addWidget(self.lcd_money, 6, 2, 1, 2)
+        self.gridLayout.addWidget(self.lcd_money, 8, 2, 1, 2)
         self.lcd_money.setDigitCount(10)
         self.real = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
@@ -125,17 +151,17 @@ class Ui_MainWindow(object):
         self.real.setFont(font)
         self.real.setAlignment(QtCore.Qt.AlignCenter)
         self.real.setObjectName("real")
-        self.gridLayout.addWidget(self.real, 6, 1, 1, 1)
+        self.gridLayout.addWidget(self.real, 8, 1, 1, 1)
         self.lcdNumber = QtWidgets.QLCDNumber(self.centralwidget)
         self.lcdNumber.setObjectName("lcdNumber")
         self.lcdNumber.setDigitCount(10)
-        self.gridLayout.addWidget(self.lcdNumber, 7, 2, 1, 2)
+        self.gridLayout.addWidget(self.lcdNumber, 9, 2, 1, 2)
         self.imag = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(14)
         self.imag.setFont(font)
         self.imag.setObjectName("imag")
-        self.gridLayout.addWidget(self.imag, 7, 1, 1, 1)
+        self.gridLayout.addWidget(self.imag, 9, 1, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -315,6 +341,11 @@ class Ui_MainWindow(object):
         self.Assegnista.setEnabled(False)
         self.altro.setEnabled(False)
         self.sogni.setEnabled(False)
+        if self.casa.isChecked():
+            print("CIOA")
+
+
+
 
         if Ui_MainWindow.a == 0:
             self.time_left_int = 0
@@ -348,7 +379,7 @@ class Ui_MainWindow(object):
             Ui_MainWindow.imaginary_amount= "CR7's Money (€)"
         if Ui_list.lst == 7:
             self.euro_img = 0.001243024
-            Ui_MainWindow.imaginary_amount= "Bezos's Money (M$)"
+            Ui_MainWindow.imaginary_amount= "Bezos's Money 0(M$)"
         if Ui_list.lst == 8:
             self.euro_img = 0.000190259
             Ui_MainWindow.imaginary_amount = "Musk's Money (M$)"
@@ -358,6 +389,9 @@ class Ui_MainWindow(object):
         if Ui_list.lst == 10:
             self.euro_img = 1
             Ui_MainWindow.imaginary_amount= "The pope's Money (blessings)"
+        if Ui_list.lst == 11:
+            self.euro_img = float('inf')
+            Ui_MainWindow.imaginary_amount= "Scrooge McDuck's money ($)"
 
 
         self.retranslateUi(Form)
@@ -380,7 +414,7 @@ class Ui_MainWindow(object):
         #print(self.money_real)
 
 
-        if self.time_left_int == 28801:
+        if self.time_left_int == 6:
             self.my_qtimer.stop()
             time.sleep(3)
             Form.close()
@@ -397,12 +431,17 @@ class Ui_MainWindow(object):
         self.sogni.setEnabled(True)
 
 
+
+
     def update_gui(self):
 
         self.lcd_tempo.display(format(self.time_left_int))
         self.lcd_money.display('{:.2f}'.format(self.time_left_int*self.euro_real))
-        self.lcdNumber.display('{:.2f}'.format(self.time_left_int*self.euro_img))
-        self.progressBar.setValue(self.time_left_int/28801*100)
+        if Ui_list.lst == 11:
+            self.lcdNumber.display('7oo grEa7')
+        else:
+            self.lcdNumber.display('{:.2f}'.format(self.time_left_int*self.euro_img))
+        self.progressBar.setValue(self.time_left_int/5*100)
     '''
     def start_timer(self,interval):
         timer = QTimer()
@@ -567,7 +606,19 @@ class Ui_list(object):
         self.retranslateUi(list)
         QtCore.QMetaObject.connectSlotsByName(list)
 
-
+        self.bg2=QtWidgets.QButtonGroup()
+        self.bg2.addButton(self.ricercatore,1)
+        self.bg2.addButton(self.bezos,2)
+        self.bg2.addButton(self.CR7,3)
+        self.bg2.addButton(self.musk,4)
+        self.bg2.addButton(self.checkBox_11,5)
+        self.bg2.addButton(self.pallavolo,6)
+        self.bg2.addButton(self.cestista,7)
+        self.bg2.addButton(self.papa,8)
+        self.bg2.addButton(self.trump,9)
+        self.bg2.addButton(self.ordinario,10)
+        self.bg2.addButton(self.associato,11)
+        self.bg2.addButton(self.checkBox_12,12)
 
         self.pushButton2.clicked.connect(self.param)
         self.pushButton2.clicked.connect(self.close)
@@ -578,13 +629,13 @@ class Ui_list(object):
         self.bezos.setText(QtWidgets.QApplication.translate("list", "Jeff Bezos", None, -1))
         self.CR7.setText(QtWidgets.QApplication.translate("list", "CR7", None, -1))
         self.musk.setText(QtWidgets.QApplication.translate("list", "Elon Musk", None, -1))
-        self.checkBox_11.setText(QtWidgets.QApplication.translate("list", "Other", None, -1))
+        self.checkBox_11.setText(QtWidgets.QApplication.translate("list", "Scrooge McDuck", None, -1))
         self.pallavolo.setText(QtWidgets.QApplication.translate("list", "Volleyball player", None, -1))
         self.cestista.setText(QtWidgets.QApplication.translate("list", "Basketball player", None, -1))
         self.papa.setText(QtWidgets.QApplication.translate("list", "The pope", None, -1))
         self.trump.setText(QtWidgets.QApplication.translate("list", "Donald Trump", None, -1))
         self.ordinario.setText(QtWidgets.QApplication.translate("list", "Full Professor", None, -1))
-        self.checkBox_12.setText(QtWidgets.QApplication.translate("list", "Other2", None, -1))
+        self.checkBox_12.setText(QtWidgets.QApplication.translate("list", "Unemployed", None, -1))
         self.associato.setText(QtWidgets.QApplication.translate("list", "Associated Professor", None, -1))
         self.pushButton2.setText(QtWidgets.QApplication.translate("list", "OK", None, -1))
 
@@ -629,6 +680,9 @@ class Ui_list(object):
         if self.papa.isChecked():
             Ui_list.lst=10
             Ui_list.vorresti= "The pope"
+        if self.checkBox_11.isChecked():
+            Ui_list.lst=11
+            Ui_list.vorresti= "Scrooge McDuck"
 
 '''
         self.form2 = QtWidgets.QMainWindow()
@@ -667,8 +721,24 @@ class Ui_finish(object):
         QtCore.QMetaObject.connectSlotsByName(finish)
 
     def retranslateUi(self, finish):
-        finish.setWindowTitle(QtWidgets.QApplication.translate("finish", "MainWindow", None, -1))
-        self.label.setText(QtWidgets.QApplication.translate("finish", "Si va a Casa!!!!!", None, -1))
+        self.bere=False
+        if ui.bere.isChecked():
+            self.bere=True
+            if ui.casa.isChecked():
+                finish.setWindowTitle(QtWidgets.QApplication.translate("finish", "MainWindow", None, -1))
+                self.label.setText(QtWidgets.QApplication.translate("finish", "Si va a Casa a Bere!!!!!", None, -1))
+            else:
+                finish.setWindowTitle(QtWidgets.QApplication.translate("finish", "MainWindow", None, -1))
+                self.label.setText(QtWidgets.QApplication.translate("finish", "Si va a Bere!!!!!", None, -1))
+        if not self.bere:
+            if ui.casa.isChecked():
+                finish.setWindowTitle(QtWidgets.QApplication.translate("finish", "MainWindow", None, -1))
+                self.label.setText(QtWidgets.QApplication.translate("finish", "Si va a Casa!!!!!", None, -1))
+            else:
+                finish.setWindowTitle(QtWidgets.QApplication.translate("finish", "MainWindow", None, -1))
+                self.label.setText(QtWidgets.QApplication.translate("finish", "Error!!! \n\n Destination not Specified!!! \n\n ABORT", None, -1))
+
+
 
 
 
